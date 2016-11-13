@@ -10,4 +10,4 @@ jackson-datatype-jsr310 を依存関係に追加することで可能となり�
 compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.4'
 ```
 
-このデモプロジェクトでは、上述のモジュールで設定されたシリアライザを Jackson2ObjectMapperBuilderCustomizer を implements したクラスを作成し独自のシリアライザに置換します。
+このデモプロジェクトでは、上述のモジュールで設定されたシリアライザをさらに Jackson2ObjectMapperBuilderCustomizer を implements したクラスを作成し独自のシリアライザに置換します。
