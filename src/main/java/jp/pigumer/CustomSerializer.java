@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class CustomSerializer extends StdSerializer<LocalDateTime> {
 
@@ -19,6 +21,7 @@ public class CustomSerializer extends StdSerializer<LocalDateTime> {
 
     @Override
     public void serialize(LocalDateTime value, JsonGenerator gen, SerializerProvider provider) throws IOException {
-        gen.writeNumber(0);
+        Instant i = value.atZone(ZoneId.of("Etc/GMT")).toInstant();
+        gen.writeNumber(i.toEpochMilli());
     }
 }
