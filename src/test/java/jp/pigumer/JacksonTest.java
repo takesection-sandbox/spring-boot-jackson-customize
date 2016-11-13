@@ -29,8 +29,8 @@ public class JacksonTest {
     public void test() throws Exception {
         verify(config).customize(anyObject());
 
-        LocalDateTime zero = LocalDateTime.of(1970, 1, 1, 0, 0, 0, 1000000);
-        String json = mapper.writeValueAsString(zero);
+        LocalDateTime one = LocalDateTime.of(1970, 1, 1, 0, 0, 0, 1000000);
+        String json = mapper.writeValueAsString(one);
         assertThat(json, is("1"));
     }
 }
