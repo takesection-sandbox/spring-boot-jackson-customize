@@ -10,9 +10,9 @@ package jp.pigumer {
     implicit def longToLocalDateTime(l: Long): LocalDateTime =
       LocalDateTime.ofInstant(Instant.ofEpochMilli(l), ZoneId.of("Etc/GMT"))
 
+    def foo: LocalDateTime = 0l
 
-    def foo: LocalDateTime = longToLocalDateTime(0l)
-
-    def exists(param: String): String = if (null == param) "null" else "not null"
+    def exists(param: String): String =
+      Option.apply(param).map(p => "not null").getOrElse("null")
   }
 }
