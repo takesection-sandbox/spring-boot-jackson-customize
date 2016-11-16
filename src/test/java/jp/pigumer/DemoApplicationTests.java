@@ -30,4 +30,10 @@ public class DemoApplicationTests {
 		assertThat(res.getBody(), is("not null"));
 	}
 
+	@Test
+	public void jacksonTest() {
+		ResponseEntity<Long> res = template.getForEntity("/test", Long.class);
+		assertThat(res.getBody(), is(not(nullValue())));
+		assertThat(res.getBody(), is(Long.valueOf(0)));
+	}
 }
